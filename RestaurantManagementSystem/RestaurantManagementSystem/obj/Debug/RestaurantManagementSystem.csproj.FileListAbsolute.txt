@@ -1,0 +1,7 @@
+D:\Anul3\Sabloane de proiectare\Proiect\spProject\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\RestaurantManagementSystem.exe.config
+D:\Anul3\Sabloane de proiectare\Proiect\spProject\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\RestaurantManagementSystem.exe
+D:\Anul3\Sabloane de proiectare\Proiect\spProject\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\RestaurantManagementSystem.pdb
+D:\Anul3\Sabloane de proiectare\Proiect\spProject\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\RestaurantManagementSystem.csprojAssemblyReference.cache
+D:\Anul3\Sabloane de proiectare\Proiect\spProject\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\RestaurantManagementSystem.csproj.CoreCompileInputs.cache
+D:\Anul3\Sabloane de proiectare\Proiect\spProject\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\RestaurantManagementSystem.exe
+D:\Anul3\Sabloane de proiectare\Proiect\spProject\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\RestaurantManagementSystem.pdb
