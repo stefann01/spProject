@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="helpers\Constants.cs" />
+    <Compile Include="models\Customer.cs" />
+    <Compile Include="models\DrinkItem.cs" />
+    <Compile Include="models\FoodItem.cs" />
+    <Compile Include="models\Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
