@@ -4,26 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManagementSystem.models
+namespace RestaurantManagementSystem.models.persons
 {
-    class Customer
+    class Person
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public double Budget { get; set; }
 
-        public Customer(int id, string firstName, string lastName, double budget)
+        public Person(int id, string firstName, string lastName)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
-            Budget = budget;
         }
 
         public override string ToString()
         {
-            return $"First name: {FirstName}    |   Last name: {LastName}   |   Budget: {Budget}";
+            return $"Person   |   FirstName: {FirstName}   |   LastName: {LastName}";
         }
     }
 }

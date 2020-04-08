@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagementSystem.models
 {
-    class MenuItem
+    abstract class MenuItem
     {
         public string Name { get; set; }
         public double Price { get; set; }
