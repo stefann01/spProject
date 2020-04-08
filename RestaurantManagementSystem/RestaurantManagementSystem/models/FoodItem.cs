@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace RestaurantManagementSystem.models
 {
-    class FoodItem
+    class FoodItem: MenuItem
     {
+        public FoodItem(string name, string type): base(name, type){}
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

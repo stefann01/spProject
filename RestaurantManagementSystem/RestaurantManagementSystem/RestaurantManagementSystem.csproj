@@ -47,6 +47,8 @@
     <Compile Include="models\Customer.cs" />
     <Compile Include="models\DrinkItem.cs" />
     <Compile Include="models\FoodItem.cs" />
+    <Compile Include="models\Menu.cs" />
+    <Compile Include="models\MenuItem.cs" />
     <Compile Include="models\Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
