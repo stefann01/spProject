@@ -15,6 +15,7 @@ namespace RestaurantManagementSystem.models
         public Dictionary<FoodItem, int> FoodItems { get; set; }
         public Dictionary<DrinkItem, int> DrinkItems { get; set; }
         public double TotalSum { get; set; }
+        public string Status { get; set; }
 
         public Order(int id, Customer customer)
         {
@@ -23,6 +24,7 @@ namespace RestaurantManagementSystem.models
             FoodItems = new Dictionary<FoodItem, int>();
             DrinkItems = new Dictionary<DrinkItem, int>();
             TotalSum = Constants.DefaultTotalSumValue;
+            Status = Constants.DefaultStatus;
         }
 
         public override string ToString()
