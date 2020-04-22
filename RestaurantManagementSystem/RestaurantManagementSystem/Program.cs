@@ -1,6 +1,9 @@
 ﻿using Flyweight;
+using RestaurantManagementSystem.decorator.foods;
 using RestaurantManagementSystem.helpers;
+using RestaurantManagementSystem.interfaces.foods;
 using RestaurantManagementSystem.models;
+using RestaurantManagementSystem.models.foods;
 using RestaurantManagementSystem.models.persons;
 using System;
 
@@ -44,6 +47,30 @@ namespace RestaurantManagementSystem
 
             Console.WriteLine("Complete order...");
             subject.OrderStatus = Constants.CompletedStatus;
+
+            Console.WriteLine("\n===== Testing Decorator ======");
+        
+            /* Salad */
+            ISalad salad = new BasicSalad("Super Salad", 90, 300);
+            Console.WriteLine(salad);
+            Console.WriteLine(new SaladCaesarDecorator(salad));
+            Console.WriteLine(new SaladMediterraneanDecorator(salad));
+            Console.WriteLine(new SaladVegetarianDecorator(salad));
+            Console.WriteLine();
+
+            IPizza pizza = new BasicPizza("Mega Pizza", 120, 400);
+            Console.WriteLine(pizza);
+            Console.WriteLine(new PizzaDiavolaDecorator(pizza));
+            Console.WriteLine(new PizzaCapricciosaDecorator(pizza));
+            Console.WriteLine(new PizzaChickenDecorator(pizza));
+            Console.WriteLine();
+
+            IDrink drink = new BasicDrink("Buff Drink", 30, 250);
+            Console.WriteLine(drink);
+            Console.WriteLine(new DrinkColaDecorator(drink));
+            Console.WriteLine(new DrinkOrangeJuiceDecorator(drink));
+            Console.WriteLine(new DrinkCherrySodaDecorator(drink));
+            Console.WriteLine();
         }
     }
 }

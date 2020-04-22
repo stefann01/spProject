@@ -12,8 +12,7 @@ namespace RestaurantManagementSystem.models
     {
         public int Id { get; set; }
         public Customer Customer { get; set; }
-        public Dictionary<FoodItem, int> FoodItems { get; set; }
-        public Dictionary<DrinkItem, int> DrinkItems { get; set; }
+        public Dictionary<IMenuItem, int> MenuItems { get; set; }
         public double TotalSum { get; set; }
         public string Status { get; set; }
 
@@ -21,8 +20,7 @@ namespace RestaurantManagementSystem.models
         {
             Id = id;
             Customer = customer;
-            FoodItems = new Dictionary<FoodItem, int>();
-            DrinkItems = new Dictionary<DrinkItem, int>();
+            MenuItems = new Dictionary<IMenuItem, int>();
             TotalSum = Constants.DefaultTotalSumValue;
             Status = Constants.DefaultStatus;
         }

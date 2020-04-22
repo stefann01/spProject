@@ -11,11 +11,11 @@ namespace RestaurantManagementSystem.models
         public string Name { get; set; }
         public string Type { get; set; }
 
-        public List<MenuItem> MenuItems { get; set; }
+        public List<IMenuItem> MenuItems { get; set; }
 
         public Menu(string name, string type)
         {
-            MenuItems = new List<MenuItem>();
+            MenuItems = new List<IMenuItem>();
             Name = name;
             Type = type;
         }
