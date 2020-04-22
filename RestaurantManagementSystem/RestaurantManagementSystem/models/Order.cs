@@ -11,19 +11,56 @@ namespace RestaurantManagementSystem.models
 {
     class Order
     {
+        static int globalId = 0;
         public int Id { get; set; }
         public Customer Customer { get; set; }
         public Dictionary<IMenuItem, int> MenuItems { get; set; }
         public double TotalSum { get; set; }
         public string Status { get; set; }
 
-        public Order(int id, Customer customer)
+        public Order(Customer customer)
         {
-            Id = id;
+            Order.globalId++;
+            this.Id = globalId;
             Customer = customer;
             MenuItems = new Dictionary<IMenuItem, int>();
             TotalSum = Constants.DefaultTotalSumValue;
             Status = Constants.DefaultStatus;
+        }
+
+        public void DoOrder(DrinkItem drinkItem, FoodItem foodItem, int amount)
+        {
+            if (drinkItem != null)
+            {
+                var value = -1;
+                var found = DrinkItems.TryGetValue(drinkItem, out value);
+                if (found)
+                {
+                    DrinkItems[drinkItem] += amount;
+                }
+                else
+                {
+                    DrinkItems.Add(drinkItem, amount);
+                }
+                if (DrinkItems.ContainsKey(drinkItem))
+                {
+                    Console.WriteLine();
+                }
+            }
+
+            if(foodItem != null)
+            {
+                var value = -1;
+                var found = FoodItems.TryGetValue(foodItem, out value);
+                if (found)
+                {
+                    FoodItems[foodItem] += amount;
+                }
+                else
+                {
+                    FoodItems.Add(foodItem, amount);
+                }
+            }
         }
 
         public override string ToString()
