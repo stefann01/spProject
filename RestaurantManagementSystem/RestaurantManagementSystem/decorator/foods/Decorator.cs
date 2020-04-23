@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RestaurantManagementSystem.decorator.foods
 {
-    public abstract class Decorator<EType> : IDish<EType>
+    public class Decorator<EType> : IDish<EType>
     {
         public string Name { get; set; }
         public double Price { get; set; }
@@ -14,11 +14,20 @@ namespace RestaurantManagementSystem.decorator.foods
         public List<string> Ingredients { get; set; }
         EType IDish<EType>.Type { get; set; }
 
-        public IDish<EType> DecoratedObj { get; set; }
+        protected IDish<EType> DecoratedObj { get; set; }
+
+        public Decorator() {}
 
         public Decorator(IDish<EType> decoratedObj)
         {
             DecoratedObj = decoratedObj;
+        }
+
+        public Decorator(IDish<EType> decoratedObj, EType type, double price, double quantity, List<string> ingredients)
+        {
+            DecoratedObj = decoratedObj;
+            DecoratedObj.Type = type;
+            SetDish(price, quantity, ingredients);
         }
 
         protected bool ContainsIngredient(string ingredient)
@@ -30,7 +39,17 @@ namespace RestaurantManagementSystem.decorator.foods
             return false;
         }
 
-        public abstract void SetDish(double price, double quantity, List<string> ingredients);
+        public void SetDish(double price, double quantity, List<string> ingredients)
+        {
+            DecoratedObj.Price += price;
+            DecoratedObj.Quantity += quantity;
+
+            foreach (var ingredient in ingredients)
+            {
+                if (!ContainsIngredient(ingredient))
+                    DecoratedObj.Ingredients.Add(ingredient);
+            }
+        }
 
         public override string ToString()
         {
