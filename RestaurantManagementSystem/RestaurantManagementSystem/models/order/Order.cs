@@ -39,6 +39,7 @@ namespace RestaurantManagementSystem.models
                 MenuItems.Add(menuItem, amount);
             }
             AddToSum(menuItem, amount);
+            this.Status = Constants.InProgressStatus;
         }
 
         private void AddToSum(IMenuItem menuItem, int amount)
@@ -48,7 +49,12 @@ namespace RestaurantManagementSystem.models
 
         public override string ToString()
         {
-            return $"Customer: {Customer.ToString()}    |   Total: {TotalSum}";
+            string items = "";
+            foreach (var item in MenuItems)
+            {
+                items += $" {item.Key} {item.Value.ToString()},  \n";
+            }
+            return $"Customer: {Customer.ToString()}    |   Total: {TotalSum} \n {items}";
         }
     }
 }

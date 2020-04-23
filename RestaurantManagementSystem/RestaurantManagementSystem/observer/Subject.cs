@@ -19,8 +19,9 @@ namespace RestaurantManagementSystem
             }
             set
             {
-                if (value == Constants.CompletedStatus)
+                if (value != null)
                 {
+                    order.Status = value;
                     Notify();
                 }
             }
@@ -30,10 +31,10 @@ namespace RestaurantManagementSystem
         {
             this.order = order;
         }
-        
+
         public void Register(Observer observer)
         {
-            if(!observers.Contains(observer))
+            if (!observers.Contains(observer))
             {
                 observers.Add(observer);
             }
@@ -41,7 +42,7 @@ namespace RestaurantManagementSystem
 
         public void Unregister(Observer observer)
         {
-            if(observers.Contains(observer))
+            if (observers.Contains(observer))
             {
                 observers.Remove(observer);
             }
@@ -51,7 +52,7 @@ namespace RestaurantManagementSystem
         {
             foreach (Observer observer in observers)
             {
-                observer.Update();
+                observer.Update(this.OrderStatus);
             }
         }
     }

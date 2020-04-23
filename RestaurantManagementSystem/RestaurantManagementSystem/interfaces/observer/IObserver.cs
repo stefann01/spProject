@@ -6,6 +6,6 @@ namespace RestaurantManagementSystem.interfaces
 {
     interface IObserver
     {
-        void Update();
+        void Update(string Status);
     }
 }

@@ -11,6 +11,7 @@ namespace RestaurantManagementSystem.helpers
         public const double DefaultTotalSumValue = 0;
         public const string DefaultStatus = "Uninitialized";
         public const string InProgressStatus = "Progress";
+        public const string PayedStatus = "Paid";
         public const string CompletedStatus = "Completed";
 
         /*=====< Foods >=====*/

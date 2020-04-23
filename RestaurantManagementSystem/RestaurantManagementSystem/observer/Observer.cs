@@ -15,9 +15,9 @@ namespace RestaurantManagementSystem
             Customer = customer;
         }
 
-        public void Update()
+        public void Update(string Status)
         {
-            Console.WriteLine($"Hello {Customer.FirstName}, your order status is completed!");
+            Console.WriteLine($"Hello {Customer.FirstName}, your order status is {Status}!");
         }
     }
 }
