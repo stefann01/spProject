@@ -84,6 +84,7 @@ namespace RestaurantManagementSystem
             var comm = invoker.GetOrder();
             invoker.DoOrder(pizza);
             invoker.DoOrder(drink, 2);
+            var myOrder = invoker.GetOrder();
             Console.WriteLine();
             
         }

@@ -38,6 +38,12 @@ namespace RestaurantManagementSystem.models
             {
                 MenuItems.Add(menuItem, amount);
             }
+            AddToSum(menuItem, amount);
+        }
+
+        private void AddToSum(IMenuItem menuItem, int amount)
+        {
+            TotalSum += menuItem.Price * amount;
         }
 
         public override string ToString()

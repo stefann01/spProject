@@ -1,4 +1,5 @@
-﻿using RestaurantManagementSystem.models;
+﻿using RestaurantManagementSystem.interfaces.foods;
+using RestaurantManagementSystem.models;
 using RestaurantManagementSystem.models.persons;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace RestaurantManagementSystem
         }
 
 
-        public Dictionary<IMenuItem, int> GetOrder()
+        public Order GetOrder()
         {
             return command.GetOrder();
         }

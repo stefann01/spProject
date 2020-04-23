@@ -1,4 +1,5 @@
-﻿using RestaurantManagementSystem.models;
+﻿using RestaurantManagementSystem.interfaces.foods;
+using RestaurantManagementSystem.models;
 using RestaurantManagementSystem.models.persons;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,9 @@ namespace RestaurantManagementSystem
             this.menuItem = null;
         }
 
-        public Dictionary<IMenuItem, int> GetOrder()
+        public Order GetOrder()
         {
-            return order.MenuItems;
+            return this.order;
         }
     }
 }
