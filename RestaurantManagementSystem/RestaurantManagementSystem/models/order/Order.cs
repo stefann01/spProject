@@ -39,7 +39,6 @@ namespace RestaurantManagementSystem.models
                 MenuItems.Add(menuItem, amount);
             }
             AddToSum(menuItem, amount);
-            this.Status = Constants.InProgressStatus;
         }
 
         private void AddToSum(IMenuItem menuItem, int amount)

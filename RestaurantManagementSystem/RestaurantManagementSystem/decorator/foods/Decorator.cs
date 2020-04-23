@@ -14,9 +14,10 @@ namespace RestaurantManagementSystem.decorator.foods
         public double Price { get; set; }
         public double Quantity { get; set; }
         public List<string> Ingredients { get; set; }
+      
+        public EType Type { get; set; }
+        public IDish<EType> DecoratedObj { get; set; }
         EType IDish<EType>.Type { get; set; }
-
-        protected IDish<EType> DecoratedObj { get; set; }
 
         public Decorator() {}
 
@@ -27,6 +28,11 @@ namespace RestaurantManagementSystem.decorator.foods
 
         public Decorator(IDish<EType> decoratedObj, EType type, double price, double quantity, List<string> ingredients)
         {
+            Type = type;
+            Quantity = quantity;
+            Price = Price;
+            Ingredients = ingredients;
+
             DecoratedObj = decoratedObj;
             DecoratedObj.Type = type;
             SetDish(price, quantity, ingredients);

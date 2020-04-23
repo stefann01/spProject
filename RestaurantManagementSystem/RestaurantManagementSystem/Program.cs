@@ -32,7 +32,7 @@ namespace RestaurantManagementSystem
                 Console.WriteLine("Enter amount: ");
                 int amount = Int32.Parse(Console.ReadLine());
 
-                if (option < menu.MenuItems.Count && option-1 > 0)
+                if (option < menu.MenuItems.Count && option-1 >= 0)
                 {
                     invoker.DoOrder(menu.MenuItems[option - 1], amount);
                     Console.Clear();
