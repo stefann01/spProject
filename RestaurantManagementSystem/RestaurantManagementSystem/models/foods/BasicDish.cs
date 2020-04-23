@@ -7,6 +7,7 @@ using System.Text;
 
 namespace RestaurantManagementSystem.models.foods
 {
+    [Serializable]
     class BasicDish<EType> : IDish<EType>
     {
         public string Name { get; set; }

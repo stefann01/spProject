@@ -6,6 +6,8 @@ using System.Text;
 
 namespace RestaurantManagementSystem.decorator.foods
 {
+    [Serializable]
+
     public class Decorator<EType> : IDish<EType>
     {
         public string Name { get; set; }

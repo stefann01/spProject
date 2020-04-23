@@ -8,8 +8,8 @@ namespace RestaurantManagementSystem.models.persons
 {
     class Chef : Employee
     {
-        public Chef(int id, string firstName, string lastName, double salary) :
-            base(id, firstName, lastName, salary)
+        public Chef(string firstName, string lastName, double salary) :
+            base(firstName, lastName, salary)
         { }
 
         public override string ToString()

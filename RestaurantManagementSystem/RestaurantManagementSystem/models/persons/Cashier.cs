@@ -14,8 +14,8 @@ namespace RestaurantManagementSystem.models.persons
         private CashRegister cashRegisterPaper;
         private CashRegister cashRegisterCard; 
 
-        public Cashier(int id, string firstName, string lastName, double salary) :
-            base(id, firstName, lastName, salary)
+        public Cashier(string firstName, string lastName, double salary) :
+            base(firstName, lastName, salary)
         {
             cashRegisterCoin = new CashRegisterCoin();
             cashRegisterPaper = new CashRegisterPaper();

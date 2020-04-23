@@ -9,8 +9,8 @@ namespace RestaurantManagementSystem.models.persons
     class Employee : Person
     {
         public double Salary { get; set; }
-        public Employee(int id, string firstName, string lastName, double salary) :
-            base(id, firstName, lastName)
+        public Employee(string firstName, string lastName, double salary) :
+            base(firstName, lastName)
         {
             Salary = salary;
         }

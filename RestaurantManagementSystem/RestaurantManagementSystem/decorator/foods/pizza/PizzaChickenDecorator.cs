@@ -7,6 +7,8 @@ using System.Text;
 
 namespace RestaurantManagementSystem.decorator.foods.pizza
 {
+    [Serializable]
+
     public class PizzaChickenDecorator : Decorator<EPizzaType>
     {
         public PizzaChickenDecorator(IDish<EPizzaType> decoratedObj) :

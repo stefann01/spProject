@@ -7,6 +7,7 @@ using System.Text;
 
 namespace RestaurantManagementSystem.decorator.foods.salads
 {
+    [Serializable]
     public class SaladCaesarDecorator : Decorator<ESaladType>
     {
         public SaladCaesarDecorator(IDish<ESaladType> decoratedObj) :

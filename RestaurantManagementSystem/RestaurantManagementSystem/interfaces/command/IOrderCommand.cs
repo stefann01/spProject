@@ -12,5 +12,6 @@ namespace RestaurantManagementSystem
 
         void Execute(int amount);
         Order GetOrder();
+        void DeleteOrder();
     }
 }

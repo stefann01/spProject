@@ -10,8 +10,8 @@ namespace RestaurantManagementSystem.models.persons
     {
         public double Budget { get; set; }
 
-        public Customer(int id, string firstName, string lastName, double budget) :
-            base(id, firstName, lastName)
+        public Customer(string firstName, string lastName, double budget) :
+            base(firstName, lastName)
         {
             Budget = budget;
         }

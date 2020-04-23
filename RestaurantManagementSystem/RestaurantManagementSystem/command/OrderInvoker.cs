@@ -27,5 +27,10 @@ namespace RestaurantManagementSystem
         {
             return command.GetOrder();
         }
+
+        public void DeleteOrder()
+        {
+            command.DeleteOrder();
+        }
     }
 }

@@ -27,5 +27,10 @@ namespace RestaurantManagementSystem
         {
             return this.order;
         }
+
+        public void DeleteOrder()
+        {
+            this.order.MenuItems.Clear();
+        }
     }
 }
