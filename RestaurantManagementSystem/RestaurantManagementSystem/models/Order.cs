@@ -28,38 +28,15 @@ namespace RestaurantManagementSystem.models
             Status = Constants.DefaultStatus;
         }
 
-        public void DoOrder(DrinkItem drinkItem, FoodItem foodItem, int amount)
+        public void DoOrder(IMenuItem menuItem, int amount)
         {
-            if (drinkItem != null)
+            if (this.MenuItems.ContainsKey(menuItem))
             {
-                var value = -1;
-                var found = DrinkItems.TryGetValue(drinkItem, out value);
-                if (found)
-                {
-                    DrinkItems[drinkItem] += amount;
-                }
-                else
-                {
-                    DrinkItems.Add(drinkItem, amount);
-                }
-                if (DrinkItems.ContainsKey(drinkItem))
-                {
-                    Console.WriteLine();
-                }
+                MenuItems[menuItem] += amount;
             }
-
-            if(foodItem != null)
+            else
             {
-                var value = -1;
-                var found = FoodItems.TryGetValue(foodItem, out value);
-                if (found)
-                {
-                    FoodItems[foodItem] += amount;
-                }
-                else
-                {
-                    FoodItems.Add(foodItem, amount);
-                }
+                MenuItems.Add(menuItem, amount);
             }
         }
 

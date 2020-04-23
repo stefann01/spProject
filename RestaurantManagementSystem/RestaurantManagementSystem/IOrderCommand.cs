@@ -5,11 +5,11 @@ using System.Text;
 
 namespace RestaurantManagementSystem
 {
-    interface ICommand
+    interface IOrderCommand
     {
-        FoodItem FoodItem { get; set; }
-        DrinkItem DrinkItem { get; set; }
+        IMenuItem menuItem { get; set; }
 
         void Execute(int amount);
+        Dictionary<IMenuItem, int> GetOrder();
     }
 }

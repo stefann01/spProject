@@ -6,7 +6,7 @@ using System.Text;
 
 namespace RestaurantManagementSystem
 {
-    class OrderCommand : ICommand
+    class OrderCommand : IOrderCommand
     {
         private Order order;
         public OrderCommand(Customer customer)
@@ -14,14 +14,17 @@ namespace RestaurantManagementSystem
             order = new Order(customer);
         }
 
-        public FoodItem FoodItem { get; set; }
-        public DrinkItem DrinkItem { get; set; }
+        public IMenuItem menuItem { get; set; }
 
         public void Execute(int amount)
         {
-            order.DoOrder(this.DrinkItem, this.FoodItem, amount);
-            this.FoodItem = null;
-            this.DrinkItem = null;
+            order.DoOrder(this.menuItem, amount);
+            this.menuItem = null;
+        }
+
+        public Dictionary<IMenuItem, int> GetOrder()
+        {
+            return order.MenuItems;
         }
     }
 }
