@@ -3,6 +3,7 @@ using RestaurantManagementSystem.decorator.foods;
 using RestaurantManagementSystem.enums.foods;
 using RestaurantManagementSystem.helpers;
 using RestaurantManagementSystem.interfaces.foods;
+using RestaurantManagementSystem.iterator;
 using RestaurantManagementSystem.models;
 using RestaurantManagementSystem.models.foods;
 using RestaurantManagementSystem.models.persons;
@@ -73,6 +74,15 @@ namespace RestaurantManagementSystem
             Console.WriteLine(new DishDecorator<EDrinkType>(drink, EDrinkType.ORANGE_JUICE, Constants.DrinkOrangeJuicePrice, Constants.DrinkOrangeJuiceQuantity, new List<string>(Constants.DrinkOrangeJuiceIngredients)));
             Console.WriteLine(new DishDecorator<EDrinkType>(drink, EDrinkType.CHERRY_SODA, Constants.DrinkCherrySodaPrice, Constants.DrinkCherrySodaQuantity, new List<string>(Constants.DrinkCherrySodaIngredients)));
             Console.WriteLine();
+
+            Console.WriteLine("\n===== Testing Iterator ======");
+            Menu menu = new Menu("Menu1", "Daily Menu");
+            menu.MenuItems.Add(salad);
+            menu.MenuItems.Add(pizza);
+            menu.MenuItems.Add(drink);
+
+            IIterator iterator = menu.CreateMenuIterator();
+            menu.PrintMenu(iterator);
         }
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Programming\\_Facultate\\Sabloane de proiectare\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {}
+    "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {}
   },
   "projects": {
-    "D:\\Programming\\_Facultate\\Sabloane de proiectare\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {
+    "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Programming\\_Facultate\\Sabloane de proiectare\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
+        "projectUniqueName": "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
         "projectName": "RestaurantManagementSystem",
-        "projectPath": "D:\\Programming\\_Facultate\\Sabloane de proiectare\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\Gaming\\.nuget\\packages\\",
-        "outputPath": "D:\\Programming\\_Facultate\\Sabloane de proiectare\\RestaurantManagementSystem\\RestaurantManagementSystem\\obj\\",
+        "projectPath": "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\SM073558\\.nuget\\packages\\",
+        "outputPath": "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gaming\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SM073558\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
