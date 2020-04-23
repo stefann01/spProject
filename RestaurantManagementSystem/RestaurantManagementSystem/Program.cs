@@ -41,7 +41,7 @@ namespace RestaurantManagementSystem
             Customer customer = new Customer(1, "Customer1", "Customer", 4000);
             Console.WriteLine(customer);
 
-            Order order = new Order(1, customer);
+            Order order = new Order(customer);
             Console.WriteLine(order);
 
             Subject subject = new Subject(order);
@@ -78,14 +78,15 @@ namespace RestaurantManagementSystem
             Console.WriteLine(new DrinkCherrySodaDecorator(drink));
             Console.WriteLine();
 
-            Console.WriteLine("\n===== Testing Iterator ======");
-            Menu menu = new Menu("Menu1", "Daily Menu");
-            menu.MenuItems.Add(salad);
-            menu.MenuItems.Add(pizza);
-            menu.MenuItems.Add(drink);
 
-            IIterator iterator = menu.CreateMenuIterator();
-            menu.PrintMenu(iterator);
+            Console.WriteLine("Order test");
+            var invoker = new OrderInvoker(customer);
+            var comm = invoker.GetOrder();
+            invoker.DoOrder(pizza);
+            invoker.DoOrder(drink, 2);
+            var myOrder = invoker.GetOrder();
+            Console.WriteLine();
+            
         }
     }
 }
