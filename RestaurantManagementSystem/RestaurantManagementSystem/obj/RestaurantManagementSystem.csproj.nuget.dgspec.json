@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Applications\\Projects\\An III - Sem 2\\Sabloane de proiectare\\Proiect\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {}
+    "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {}
   },
   "projects": {
-    "C:\\Applications\\Projects\\An III - Sem 2\\Sabloane de proiectare\\Proiect\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {
+    "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Applications\\Projects\\An III - Sem 2\\Sabloane de proiectare\\Proiect\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
+        "projectUniqueName": "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
         "projectName": "RestaurantManagementSystem",
-        "projectPath": "C:\\Applications\\Projects\\An III - Sem 2\\Sabloane de proiectare\\Proiect\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
-        "packagesPath": "C:\\Users\\Shorty\\.nuget\\packages\\",
-        "outputPath": "C:\\Applications\\Projects\\An III - Sem 2\\Sabloane de proiectare\\Proiect\\RestaurantManagementSystem\\RestaurantManagementSystem\\obj\\",
+        "projectPath": "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem.csproj",
+        "packagesPath": "C:\\Users\\SM073558\\.nuget\\packages\\",
+        "outputPath": "C:\\Facultate\\RestaurantManagementSystem\\RestaurantManagementSystem\\RestaurantManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Shorty\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\SM073558\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
