@@ -20,3 +20,16 @@ C:\Applications\Projects\An III - Sem 2\Sabloane de proiectare\Proiect\Restauran
 C:\Applications\Projects\An III - Sem 2\Sabloane de proiectare\Proiect\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.AssemblyInfo.cs
 C:\Applications\Projects\An III - Sem 2\Sabloane de proiectare\Proiect\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.dll
 C:\Applications\Projects\An III - Sem 2\Sabloane de proiectare\Proiect\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.pdb
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\netcoreapp3.1\RestaurantManagementSystem.exe
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\netcoreapp3.1\RestaurantManagementSystem.deps.json
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\netcoreapp3.1\RestaurantManagementSystem.runtimeconfig.json
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\netcoreapp3.1\RestaurantManagementSystem.runtimeconfig.dev.json
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\netcoreapp3.1\RestaurantManagementSystem.dll
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\bin\Debug\netcoreapp3.1\RestaurantManagementSystem.pdb
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.csprojAssemblyReference.cache
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.csproj.CoreCompileInputs.cache
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.AssemblyInfoInputs.cache
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.AssemblyInfo.cs
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.dll
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.pdb
+D:\Programming\_Facultate\Sabloane de proiectare\RestaurantManagementSystem\RestaurantManagementSystem\obj\Debug\netcoreapp3.1\RestaurantManagementSystem.genruntimeconfig.cache

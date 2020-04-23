@@ -1,11 +1,13 @@
 ﻿using Flyweight;
 using RestaurantManagementSystem.decorator.foods;
+using RestaurantManagementSystem.enums.foods;
 using RestaurantManagementSystem.helpers;
 using RestaurantManagementSystem.interfaces.foods;
 using RestaurantManagementSystem.models;
 using RestaurantManagementSystem.models.foods;
 using RestaurantManagementSystem.models.persons;
 using System;
+using System.Collections.Generic;
 
 namespace RestaurantManagementSystem
 {
@@ -49,27 +51,27 @@ namespace RestaurantManagementSystem
             subject.OrderStatus = Constants.CompletedStatus;
 
             Console.WriteLine("\n===== Testing Decorator ======");
-        
+
             /* Salad */
-            ISalad salad = new BasicSalad("Super Salad", 90, 300);
+            IDish<ESaladType> salad = new BasicDish<ESaladType>("Big Salad", 90, 300, ESaladType.BASIC);
             Console.WriteLine(salad);
-            Console.WriteLine(new SaladCaesarDecorator(salad));
-            Console.WriteLine(new SaladMediterraneanDecorator(salad));
-            Console.WriteLine(new SaladVegetarianDecorator(salad));
+            Console.WriteLine(new DishDecorator<ESaladType>(salad, ESaladType.CAESAR, Constants.SaladCaesarPrice, Constants.SaladCaesarQuantity, new List<string>(Constants.SaladCaesarIngredients)));
+            Console.WriteLine(new DishDecorator<ESaladType>(salad, ESaladType.MEDITERRANEAN, Constants.SaladMediterraneanPrice, Constants.SaladMediterraneanQuantity, new List<string>(Constants.SaladMediterraneanIngredients)));
+            Console.WriteLine(new DishDecorator<ESaladType>(salad, ESaladType.VEGETARIAN, Constants.SaladVegetarianPrice, Constants.SaladVegetarianQuantity, new List<string>(Constants.SaladVegetarianIngredients)));
             Console.WriteLine();
 
-            IPizza pizza = new BasicPizza("Mega Pizza", 120, 400);
+            IDish<EPizzaType> pizza = new BasicDish<EPizzaType>("Mega Pizza", 120, 400, EPizzaType.BASIC);
             Console.WriteLine(pizza);
-            Console.WriteLine(new PizzaDiavolaDecorator(pizza));
-            Console.WriteLine(new PizzaCapricciosaDecorator(pizza));
-            Console.WriteLine(new PizzaChickenDecorator(pizza));
+            Console.WriteLine(new DishDecorator<EPizzaType>(pizza, EPizzaType.DIAVOLA, Constants.PizzaDiavolaPrice, Constants.PizzaDiavolaQuantity, new List<string>(Constants.PizzaDiavolaIngredients)));
+            Console.WriteLine(new DishDecorator<EPizzaType>(pizza, EPizzaType.CAPRICCIOSA, Constants.PizzaCapricciosaPrice, Constants.PizzaCapricciosaQuantity, new List<string>(Constants.PizzaCapricciosaIngredients)));
+            Console.WriteLine(new DishDecorator<EPizzaType>(pizza, EPizzaType.CHICKEN, Constants.PizzaChickenPrice, Constants.PizzaChickenQuantity, new List<string>(Constants.PizzaChickenIngredients)));
             Console.WriteLine();
 
-            IDrink drink = new BasicDrink("Buff Drink", 30, 250);
+            IDish<EDrinkType> drink = new BasicDish<EDrinkType>("Buff Drink", 30, 250, EDrinkType.WATER);
             Console.WriteLine(drink);
-            Console.WriteLine(new DrinkColaDecorator(drink));
-            Console.WriteLine(new DrinkOrangeJuiceDecorator(drink));
-            Console.WriteLine(new DrinkCherrySodaDecorator(drink));
+            Console.WriteLine(new DishDecorator<EDrinkType>(drink, EDrinkType.COLA, Constants.DrinkColaPrice, Constants.DrinkColaQuantity, new List<string>(Constants.DrinkColaIngredients)));
+            Console.WriteLine(new DishDecorator<EDrinkType>(drink, EDrinkType.ORANGE_JUICE, Constants.DrinkOrangeJuicePrice, Constants.DrinkOrangeJuiceQuantity, new List<string>(Constants.DrinkOrangeJuiceIngredients)));
+            Console.WriteLine(new DishDecorator<EDrinkType>(drink, EDrinkType.CHERRY_SODA, Constants.DrinkCherrySodaPrice, Constants.DrinkCherrySodaQuantity, new List<string>(Constants.DrinkCherrySodaIngredients)));
             Console.WriteLine();
         }
     }

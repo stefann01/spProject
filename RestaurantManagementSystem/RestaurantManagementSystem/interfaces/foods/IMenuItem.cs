@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace RestaurantManagementSystem.models
+namespace RestaurantManagementSystem.interfaces.foods
 {
     public interface IMenuItem
     {
@@ -12,7 +10,6 @@ namespace RestaurantManagementSystem.models
         public double Price { get; set; }
         public double Quantity { get; set; }
         public List<string> Ingredients { get; set; }
-
-        public void SetDish();
+        public void SetDish(double price, double quantity, List<string> ingredients);
     }
 }

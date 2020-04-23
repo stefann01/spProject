@@ -1,40 +1,40 @@
-﻿using RestaurantManagementSystem.enums.foods;
-using RestaurantManagementSystem.interfaces.foods;
+﻿using RestaurantManagementSystem.interfaces.foods;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
 namespace RestaurantManagementSystem.decorator.foods
 {
-    public abstract class PizzaDecorator : IPizza
+    public abstract class Decorator<EType> : IDish<EType>
     {
         public string Name { get; set; }
         public double Price { get; set; }
         public double Quantity { get; set; }
         public List<string> Ingredients { get; set; }
-        public EPizzaType Type { get; set; }
+        EType IDish<EType>.Type { get; set; }
 
-        public IPizza DecoratedPizza { get; set; }
+        public IDish<EType> DecoratedObj { get; set; }
 
-        public PizzaDecorator(IPizza decoratedPizza)
+        public Decorator(IDish<EType> decoratedObj)
         {
-            DecoratedPizza = decoratedPizza;
+            DecoratedObj = decoratedObj;
         }
 
         protected bool ContainsIngredient(string ingredient)
         {
-            if (DecoratedPizza.Ingredients.Contains(ingredient))
+            if (DecoratedObj.Ingredients.Contains(ingredient))
             {
                 return true;
             }
             return false;
         }
 
-        public abstract void SetDish();
+        public abstract void SetDish(double price, double quantity, List<string> ingredients);
 
         public override string ToString()
         {
-            return DecoratedPizza.ToString();
+            return DecoratedObj.ToString();
         }
     }
 }

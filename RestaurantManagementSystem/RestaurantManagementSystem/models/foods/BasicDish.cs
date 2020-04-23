@@ -7,24 +7,25 @@ using System.Text;
 
 namespace RestaurantManagementSystem.models.foods
 {
-    public class BasicDrink : IDrink
+    class BasicDish<EType> : IDish<EType>
     {
         public string Name { get; set; }
         public double Price { get; set; }
         public double Quantity { get; set; }
         public List<string> Ingredients { get; set; }
-        public EDrinkType Type { get; set; }
+        public EType Type { get; set; }
 
-        public BasicDrink(string name, double price = 0.0d, double quantity = 0.0d, EDrinkType type = EDrinkType.WATER)
+        public BasicDish(string name, double price, double quantity, EType type)
         {
             Name = name;
             Price = price;
             Quantity = quantity;
             Type = type;
 
-            Ingredients = new List<string>(Constants.DrinkIngredients);
+            Ingredients = new List<string>(Constants.SaladIngredients);
         }
-        public void SetDish()
+
+        public void SetDish(double price, double quantity, List<string> ingredients)
         {
             // Do nothing
         }
