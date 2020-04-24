@@ -95,7 +95,50 @@ namespace RestaurantManagementSystem
                 {
                     Console.WriteLine("Please enter a valid option.");
                 }
+                    Console.Clear();
+                    while (true)
+                    {
+                        Console.WriteLine($"You have to pay: {invoker.GetOrder().TotalSum}");
+                        Console.WriteLine("Choose your payment method.");
+                        Console.WriteLine("1. Card");
+                        Console.WriteLine("2. Paper Money");
+                        Console.WriteLine("3. Coin Money");
 
+                        int option;
+                        if (int.TryParse(Console.ReadLine(), out option))
+                        {
+                            cashier.GetTotalCash();
+                            switch (option)
+                            {
+                                case 1:
+                                    cashier.CashIn(sumToPay, EMoneyType.Card);
+                                    break;
+                                case 2:
+                                    cashier.CashIn(sumToPay, EMoneyType.Paper);
+                                    break;
+                                case 3:
+                                    cashier.CashIn(sumToPay, EMoneyType.Coin);
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid option");
+                                    return;
+                            }
+                            Console.WriteLine("Cash in...");
+                            customer.Budget -= sumToPay;
+                            cashier.GetTotalCash();
+                            subject.OrderStatus = Constants.PayedStatus;
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid option!");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No enough money!");
+                }
             }
         }
 
