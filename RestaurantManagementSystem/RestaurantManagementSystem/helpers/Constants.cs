@@ -31,6 +31,14 @@ namespace RestaurantManagementSystem.helpers
         public const double SaladVegetarianQuantity = 100;
         public static readonly string[] SaladVegetarianIngredients = { "Carrot", "Corn" };
 
+        public const double SaladExtraMozzarellaPrice = 10;
+        public const double SaladExtraMozzarellaQuantity = 50;
+        public static readonly string[] SaladExtraMozzarellaIngredients = { "Mozzarella" };
+
+        public const double SaladExtraSpicyDressingPrice = 5;
+        public const double SaladExtraSpicyDressingQuantity = 30;
+        public static readonly string[] SaladExtraSpicyDressingIngredients = { "Spicy dressing" };
+
         /* Pizzas */
         public static readonly string[] PizzaIngredients = { "Flour", "Tomato souce" };
 
@@ -46,6 +54,14 @@ namespace RestaurantManagementSystem.helpers
         public const double PizzaChickenQuantity = 150;
         public static readonly string[] PizzaChickenIngredients = { "Chicken", "Olives" };
 
+        public const double PizzaExtraBaconPrice = 40;
+        public const double PizzaExtraBaconQuantity = 50;
+        public static readonly string[] PizzaExtraBaconIngredients = { "Bacon" };
+
+        public const double PizzaExtraTomatoesPrice = 20;
+        public const double PizzaExtraTomatoesQuantity = 50;
+        public static readonly string[] PizzaExtraTomatoesIngredients = { "Tomatoes" };
+
         /* Drinks */
         public static readonly string[] DrinkIngredients = { "Water" };
 
@@ -60,5 +76,13 @@ namespace RestaurantManagementSystem.helpers
         public const double DrinkCherrySodaPrice = 40;
         public const double DrinkCherrySodaQuantity = 0;
         public static readonly string[] DrinkCherrySodaIngredients = { "Sugar", "Cherry 0.001%" };
+
+        public const double DrinkExtraSugarPrice = 5;
+        public const double DrinkExtraSugarQuantity = 10;
+        public static readonly string[] DrinkExtraSugarIngredients = { "Sugar" };
+
+        public const double DrinkExtraLemonPrice = 10;
+        public const double DrinkExtraLemonQuantity = 15;
+        public static readonly string[] DrinkExtraLemonIngredients = { "Lemon" };
     }
 }

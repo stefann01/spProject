@@ -29,12 +29,20 @@ namespace RestaurantManagementSystem.decorator.foods
         public Decorator(IDish<EType> decoratedObj, EType type, double price, double quantity, List<string> ingredients)
         {
             Type = type;
-            Quantity = quantity;
-            Price = Price;
-            Ingredients = ingredients;
+            Quantity += quantity;
+            Price += price;
 
             DecoratedObj = decoratedObj;
             DecoratedObj.Type = type;
+            SetDish(price, quantity, ingredients);
+        }
+
+        public Decorator(IDish<EType> decoratedObj, double price, double quantity, List<string> ingredients)
+        {
+            Quantity += quantity;
+            Price += price;
+
+            DecoratedObj = decoratedObj;
             SetDish(price, quantity, ingredients);
         }
 
@@ -55,7 +63,15 @@ namespace RestaurantManagementSystem.decorator.foods
             foreach (var ingredient in ingredients)
             {
                 if (!ContainsIngredient(ingredient))
+                {
                     DecoratedObj.Ingredients.Add(ingredient);
+
+                    if (Ingredients == null)
+                    {
+                        Ingredients = new List<string>();
+                    }
+                    Ingredients.Add(ingredient);
+                }
             }
         }
 

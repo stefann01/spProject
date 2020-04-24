@@ -29,24 +29,29 @@ namespace RestaurantManagementSystem.singleton
             return new DriverManager();
         }
 
+        private BasicDish<Type> CreateBasicDish<Type>(string name, double price, double quantity, Type def)
+        {
+            return new BasicDish<Type>("Super Salad", 90, 300, def);
+        }
+
         public List<IMenuItem> GenerateMenuItems()
         {
             List<IMenuItem> menuItems = new List<IMenuItem>();
 
-            menuItems.Add(new BasicDish<ESaladType>("Super Salad", 90, 300, ESaladType.BASIC));
-            menuItems.Add(new SaladCaesarDecorator(new BasicDish<ESaladType>("Super Salad", 90, 300, ESaladType.BASIC)).DecoratedObj);
-            menuItems.Add(new SaladMediterraneanDecorator(new BasicDish<ESaladType>("Super Salad", 90, 300, ESaladType.BASIC)).DecoratedObj);
-            menuItems.Add(new SaladVegetarianDecorator(new BasicDish<ESaladType>("Super Salad", 90, 300, ESaladType.BASIC)).DecoratedObj);
+            menuItems.Add(CreateBasicDish("Basic Salad", 90, 300, ESaladType.BASIC));
+            menuItems.Add(new SaladCaesarDecorator(CreateBasicDish("Salad Caesar", 90, 300, ESaladType.BASIC)).DecoratedObj);
+            menuItems.Add(new SaladMediterraneanDecorator(CreateBasicDish("Salad Mediterranean", 90, 300, ESaladType.BASIC)).DecoratedObj);
+            menuItems.Add(new SaladVegetarianDecorator(CreateBasicDish("Salad Vegetarian", 90, 300, ESaladType.BASIC)).DecoratedObj);
 
-            menuItems.Add(new BasicDish<EPizzaType>("Mega Pizza", 120, 400, EPizzaType.BASIC));
-            menuItems.Add(new PizzaDiavolaDecorator(new BasicDish<EPizzaType>("Mega Pizza", 120, 400, EPizzaType.BASIC)).DecoratedObj);
-            menuItems.Add(new PizzaCapricciosaDecorator(new BasicDish<EPizzaType>("Mega Pizza", 120, 400, EPizzaType.BASIC)).DecoratedObj);
-            menuItems.Add(new PizzaChickenDecorator(new BasicDish<EPizzaType>("Mega Pizza", 120, 400, EPizzaType.BASIC)).DecoratedObj);
+            menuItems.Add(CreateBasicDish("Basic Pizza", 120, 400, EPizzaType.BASIC));
+            menuItems.Add(new PizzaDiavolaDecorator(CreateBasicDish("Pizza Diavola", 120, 400, EPizzaType.BASIC)).DecoratedObj);
+            menuItems.Add(new PizzaCapricciosaDecorator(CreateBasicDish("Pizza Capricciosa", 120, 400, EPizzaType.BASIC)).DecoratedObj);
+            menuItems.Add(new PizzaChickenDecorator(CreateBasicDish("Pizza Chicken", 120, 400, EPizzaType.BASIC)).DecoratedObj);
 
-            menuItems.Add(new BasicDish<EDrinkType>("Buff Drink", 30, 250, EDrinkType.WATER));
-            menuItems.Add(new DrinkColaDecorator(new BasicDish<EDrinkType>("Buff Drink", 30, 250, EDrinkType.WATER)).DecoratedObj);
-            menuItems.Add(new DrinkOrangeJuiceDecorator(new BasicDish<EDrinkType>("Buff Drink", 30, 250, EDrinkType.WATER)).DecoratedObj);
-            menuItems.Add(new DrinkCherrySodaDecorator(new BasicDish<EDrinkType>("Buff Drink", 30, 250, EDrinkType.WATER)).DecoratedObj);
+            menuItems.Add(CreateBasicDish("Water", 30, 250, EDrinkType.WATER));
+            menuItems.Add(new DrinkColaDecorator(CreateBasicDish("Cola", 30, 250, EDrinkType.WATER)).DecoratedObj);
+            menuItems.Add(new DrinkOrangeJuiceDecorator(CreateBasicDish("Orange Juice", 30, 250, EDrinkType.WATER)).DecoratedObj);
+            menuItems.Add(new DrinkCherrySodaDecorator(CreateBasicDish("Cherry Soda", 30, 250, EDrinkType.WATER)).DecoratedObj);
 
             return menuItems;
         }

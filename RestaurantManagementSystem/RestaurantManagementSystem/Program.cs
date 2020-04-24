@@ -1,6 +1,7 @@
 ﻿using Flyweight;
 using RestaurantManagementSystem.decorator.foods;
 using RestaurantManagementSystem.decorator.foods.pizza;
+using RestaurantManagementSystem.decorator.foods.salad;
 using RestaurantManagementSystem.decorator.foods.salads;
 using RestaurantManagementSystem.enums.foods;
 using RestaurantManagementSystem.helpers;
@@ -34,12 +35,149 @@ namespace RestaurantManagementSystem
 
                 if (option < menu.MenuItems.Count && option-1 >= 0)
                 {
-                    invoker.DoOrder(menu.MenuItems[option - 1], amount);
-                    Console.Clear();
+                    IMenuItem menuItem = menu.MenuItems[option - 1];
+                    invoker.DoOrder(menuItem, amount);
+
+                    Console.WriteLine("Do you want extra ingredients?");
+                    Console.WriteLine("1. Yes");
+                    Console.WriteLine("2. No");
+                    int extraIngredientsOption;
+
+                    if (int.TryParse(Console.ReadLine(), out extraIngredientsOption))
+                    {
+                        Console.Clear();
+                        if (extraIngredientsOption == 1)
+                        {
+                            ChooseExtraIngredients(invoker, menuItem);
+                        }
+
+                        Console.Clear();
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid option.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid option.");
+                }
+
+            }
+        }
+
+        static void ChooseExtraIngredients(OrderInvoker invoker, IMenuItem menuItem)
+        {
+            IDish<ESaladType> salad = menuItem as IDish<ESaladType>;
+            IDish<EPizzaType> pizza = menuItem as IDish<EPizzaType>;
+            IDish<EDrinkType> drink = menuItem as IDish<EDrinkType>;
+
+            if (salad != null && pizza != null && drink != null)
+                return;
+
+            while (true)
+            {
+                int option;
+                bool exit = false;
+
+                Console.WriteLine(menuItem);
+                Console.WriteLine();
+                Console.WriteLine("Extra ingredients:");
+                if (salad != null)
+                {
+                    Console.WriteLine("1. Mozzarella");
+                    Console.WriteLine("2. Dressing");
+                    Console.WriteLine();
+                    Console.WriteLine("0. Exit");
+                    if (int.TryParse(Console.ReadLine(), out option))
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                new SaladExtraMozzarellaDecorator(salad);
+                                break;
+                            case 2:
+                                new SaladExtraSpicyDressingDecorator(salad);
+                                break;
+                            case 0:
+                                exit = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid option!");
+                    }
+
+                }
+                else if (pizza != null)
+                {
+                    Console.WriteLine("1. Bacon");
+                    Console.WriteLine("3. Tomatoes");
+                    Console.WriteLine();
+                    Console.WriteLine("0. Exit");
+                    if (int.TryParse(Console.ReadLine(), out option))
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                new PizzaExtraBaconDecorator(pizza);
+                                break;
+                            case 2:
+                                new PizzaExtraTomatoesDecorator(pizza);
+                                break;
+                            case 0:
+                                exit = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid option!");
+                    }
+                }
+                else if (drink != null)
+                {
+                    Console.WriteLine("1. Lemon");
+                    Console.WriteLine("2. Sugar");
+                    Console.WriteLine();
+                    Console.WriteLine("0. Exit");
+                    if (int.TryParse(Console.ReadLine(), out option))
+                    {
+                        switch (option)
+                        {
+                            case 1:
+                                new DrinkExtraLemonDecorator(drink);
+                                break;
+                            case 2:
+                                new DrinkExtraSugarDecorator(drink);
+                                break;
+                            case 0:
+                                exit = true;
+                                break;
+
+                            default:
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid option!");
+                    }
+                }
+                Console.Clear();
+
+                if (exit == true)
+                {
                     break;
                 }
-                Console.WriteLine("Please enter a valid option.");
-
             }
         }
 
