@@ -27,31 +27,48 @@ namespace RestaurantManagementSystem
             menu.PrintMenu(iterator);
             while (true)
             {
-                Console.WriteLine("Enter option: ");
-                int option;
                 int amount;
-                if (int.TryParse(Console.ReadLine(), out option))
+                int option;
+                Console.WriteLine("Enter option: ");
+                if(int.TryParse(Console.ReadLine(), out option))
                 {
                     Console.WriteLine("Enter amount: ");
-                    if (int.TryParse(Console.ReadLine(), out amount))
+                    if(int.TryParse(Console.ReadLine(), out amount))
                     {
                         if (option < menu.MenuItems.Count && option - 1 >= 0)
                         {
-                            invoker.DoOrder(menu.MenuItems[option - 1], amount);
-                            Console.Clear();
-                            break;
+                            IMenuItem menuItem = menu.MenuItems[option - 1];
+                            invoker.DoOrder(menuItem, amount);
+
+                            Console.WriteLine("Do you want extra ingredients?");
+                            Console.WriteLine("1. Yes");
+                            Console.WriteLine("2. No");
+                            int extraIngredientsOption;
+
+                            if (int.TryParse(Console.ReadLine(), out extraIngredientsOption))
+                            {
+                                Console.Clear();
+                                if (extraIngredientsOption == 1)
+                                {
+                                    ChooseExtraIngredients(invoker, menuItem);
+                                }
+
+                                Console.Clear();
+                                break;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Please enter a valid option.");
+                            }
                         }
-                        Console.WriteLine("Please enter a valid option.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid amount");
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid option.");
+                        }
                     }
                 }
-                else
-                {
-                    Console.WriteLine("Invalid option");
-                }
+
+               
 
             }
         }
@@ -67,34 +84,6 @@ namespace RestaurantManagementSystem
                 double sumToPay = invoker.GetOrder().TotalSum;
                 if (customer.Budget >= sumToPay)
                 {
-                    IMenuItem menuItem = menu.MenuItems[option - 1];
-                    invoker.DoOrder(menuItem, amount);
-
-                    Console.WriteLine("Do you want extra ingredients?");
-                    Console.WriteLine("1. Yes");
-                    Console.WriteLine("2. No");
-                    int extraIngredientsOption;
-
-                    if (int.TryParse(Console.ReadLine(), out extraIngredientsOption))
-                    {
-                        Console.Clear();
-                        if (extraIngredientsOption == 1)
-                        {
-                            ChooseExtraIngredients(invoker, menuItem);
-                        }
-
-                        Console.Clear();
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter a valid option.");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Please enter a valid option.");
-                }
                     Console.Clear();
                     while (true)
                     {
@@ -137,7 +126,7 @@ namespace RestaurantManagementSystem
                 }
                 else
                 {
-                    Console.WriteLine("No enough money!");
+                    Console.WriteLine("Not enough money.");
                 }
             }
         }
@@ -280,8 +269,6 @@ namespace RestaurantManagementSystem
                 int customerOption;
                 if (int.TryParse(Console.ReadLine(), out customerOption))
                 {
-
-
                     if (customerOption <= customers.Count)
                     {
                         currentCustomer = customers[customerOption];
