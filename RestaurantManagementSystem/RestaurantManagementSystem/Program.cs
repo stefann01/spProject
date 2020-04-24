@@ -28,12 +28,44 @@ namespace RestaurantManagementSystem
             while (true)
             {
                 Console.WriteLine("Enter option: ");
-                int option = Int32.Parse(Console.ReadLine());
+                int option;
+                int amount;
+                if (int.TryParse(Console.ReadLine(), out option))
+                {
+                    Console.WriteLine("Enter amount: ");
+                    if (int.TryParse(Console.ReadLine(), out amount))
+                    {
+                        if (option < menu.MenuItems.Count && option - 1 >= 0)
+                        {
+                            invoker.DoOrder(menu.MenuItems[option - 1], amount);
+                            Console.Clear();
+                            break;
+                        }
+                        Console.WriteLine("Please enter a valid option.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid amount");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid option");
+                }
 
-                Console.WriteLine("Enter amount: ");
-                int amount = Int32.Parse(Console.ReadLine());
+            }
+        }
 
-                if (option < menu.MenuItems.Count && option-1 >= 0)
+        static void Pay(OrderInvoker invoker, Customer customer, Cashier cashier, Subject subject)
+        {
+            if (subject.OrderStatus == Constants.PayedStatus || subject.OrderStatus == Constants.CompletedStatus)
+            {
+                Console.WriteLine("You already paid.");
+            }
+            else
+            {
+                double sumToPay = invoker.GetOrder().TotalSum;
+                if (customer.Budget >= sumToPay)
                 {
                     IMenuItem menuItem = menu.MenuItems[option - 1];
                     invoker.DoOrder(menuItem, amount);
@@ -180,7 +212,8 @@ namespace RestaurantManagementSystem
                 }
             }
         }
-
+        
+        
         static void Main(string[] args)
         {
             List<Customer> customers = DriverManager.GetInstance().GenerateCustomers();
@@ -200,18 +233,27 @@ namespace RestaurantManagementSystem
             }
             while (true)
             {
-                int customerOption = Int32.Parse(Console.ReadLine());
 
-                if (customerOption <= customers.Count)
+                int customerOption;
+                if (int.TryParse(Console.ReadLine(), out customerOption))
                 {
-                    currentCustomer = customers[customerOption];
-                    invoker = new OrderInvoker(currentCustomer);
-                    subject = new Subject(invoker.GetOrder());
-                    observer = new Observer(currentCustomer);
-                    subject.Register(observer);
-                    break;
+
+
+                    if (customerOption <= customers.Count)
+                    {
+                        currentCustomer = customers[customerOption];
+                        invoker = new OrderInvoker(currentCustomer);
+                        subject = new Subject(invoker.GetOrder());
+                        observer = new Observer(currentCustomer);
+                        subject.Register(observer);
+                        break;
+                    }
+                    Console.WriteLine("Please choose a valid customer!");
                 }
-                Console.WriteLine("Please choose a valid customer!");
+                else
+                {
+                    Console.WriteLine("Invalid option");
+                }
             }
 
 
@@ -227,67 +269,53 @@ namespace RestaurantManagementSystem
                 Console.WriteLine("5. Display order");
                 Console.WriteLine("Enter option: ");
 
-                int option = Int32.Parse(Console.ReadLine());
-                Console.Clear();
-
-                switch (option)
+                int option;
+                if (int.TryParse(Console.ReadLine(), out option))
                 {
-                    case 1:
-                        IIterator iterator = menu.CreateMenuIterator();
-                        menu.PrintMenu(iterator);
-                        break;
-                    case 2:
-                        ChooseOrderMenu(invoker, menu);
-                        subject.OrderStatus = Constants.InProgressStatus;
-                        break;
-                    case 3:
-                        if (subject.OrderStatus == Constants.InProgressStatus)
-                        {
-                            double sumToPay = invoker.GetOrder().TotalSum;
-                            if (currentCustomer.Budget >= sumToPay)
+                    Console.Clear();
+                    switch (option)
+                    {
+                        case 1:
+                            IIterator iterator = menu.CreateMenuIterator();
+                            menu.PrintMenu(iterator);
+                            break;
+                        case 2:
+                            ChooseOrderMenu(invoker, menu);
+                            subject.OrderStatus = Constants.InProgressStatus;
+                            break;
+                        case 3:
+                            Pay(invoker, currentCustomer, cashier, subject);
+                            break;
+                        case 4:
+                            if (subject.OrderStatus == Constants.PayedStatus)
                             {
-                                cashier.GetTotalCash();
-                                Console.WriteLine("Cash in...");
-                                cashier.CashIn(sumToPay, EMoneyType.Card);
-                                currentCustomer.Budget -= sumToPay;
-                                cashier.GetTotalCash();
-                                subject.OrderStatus = Constants.PayedStatus;
+                                Order customerOrder = invoker.GetOrder();
+                                Ticket ticket = new Ticket(customerOrder.TotalSum, customerOrder.MenuItems);
+                                Ticket customerTicket = ticket.Clone();
+                                Ticket restaurantTicket = ticket.Clone();
+                                Console.WriteLine($"Customer ticket: {customerTicket}");
+                                Console.WriteLine($"Restaurant ticket: {restaurantTicket}");
+                                invoker.DeleteOrder();
+                                subject.OrderStatus = Constants.CompletedStatus;
                             }
                             else
                             {
-                                Console.WriteLine("No enough money!");
+                                Console.WriteLine("You cannot checkout before you pay.");
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Cannot pay before you order.");
-                        }
-                        break;
-                    case 4:
-                        if (subject.OrderStatus == Constants.PayedStatus)
-                        {
-                            Order customerOrder = invoker.GetOrder();
-                            Ticket ticket = new Ticket(customerOrder.TotalSum, customerOrder.MenuItems);
-                            Ticket customerTicket = ticket.Clone();
-                            Ticket restaurantTicket = ticket.Clone();
-                            Console.WriteLine($"Customer ticket: {customerTicket}");
-                            Console.WriteLine($"Restaurant ticket: {restaurantTicket}");
-                            invoker.DeleteOrder();
-                            subject.OrderStatus = Constants.CompletedStatus;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You cannot checkout before you pay.");
-                        }
-                        break;
-                    case 5:
-                        Order order = invoker.GetOrder();
-                        Console.WriteLine(order);
-                        break;
-                    case 0:
-                        return;
-                    default:
-                        break;
+                            break;
+                        case 5:
+                            Order order = invoker.GetOrder();
+                            Console.WriteLine(order);
+                            break;
+                        case 0:
+                            return;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid option");
                 }
             }
         }

@@ -31,6 +31,7 @@ namespace RestaurantManagementSystem
         public void DeleteOrder()
         {
             this.order.MenuItems.Clear();
+            this.order.TotalSum = 0;
         }
     }
 }

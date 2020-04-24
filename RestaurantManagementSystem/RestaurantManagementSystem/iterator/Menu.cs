@@ -33,9 +33,11 @@ namespace RestaurantManagementSystem.models
             Console.WriteLine("**************************************");
             Console.WriteLine();
 
+            int counter = 0;
+
             while (iterator.HasNext())
             {
-                Console.WriteLine(iterator.Next());
+                Console.WriteLine($"{++counter} {iterator.Next()}");
             }
         }
 
